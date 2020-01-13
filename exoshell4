@@ -1,0 +1,26 @@
+#!/bin/bash
+
+op1=0
+op2=0
+resultat=0
+
+echo "Veuillez saisir deux valeurs et le signe opérateur"
+read op1
+read op2
+read op3
+
+case $op3 in
+	"+")
+		resultat=$(($op1+$op2))
+		echo $resultat;;
+	"-")
+		#echo "$(($op1-$op2))"
+		resultat=$(($op1-$op2))
+		echo $resultat ;;
+	"*")
+		resultat=$(($op1*$op2))
+		echo $resultat;;
+	"/")
+		resultat=$(($op1/$op2))
+  		echo $resultat;;
+esac
