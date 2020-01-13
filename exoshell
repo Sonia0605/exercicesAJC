@@ -1,16 +1,34 @@
 #!/bin/bash
 
+note = 0
+
 echo "Veuillez saisir une note"
 read note
 
-if [ $note -lt 20 -a $note -ge 16 ]
-	then echo "très bien"
-elif [ $note -lt 16 -a $note -ge 14 ]
-	then echo "bien"
-elif [ $note -lt 14 -a $note -ge 12 ]
-	then echo "assez bien"
-elif [ $note -lt 12 -a $note -ge 10 ]
-	then echo "moyen"
-elif [ $note -lt 10 ]
-	then echo "insuffisant"
+if [ $note="q" ]
+	then $note=-1
+	echo "Au revoir"
 fi
+
+while [ $note -ge 0 ]
+do
+	if [ $note -lt 20 -a $note -ge 16 ]
+		then echo "très bien"
+	elif [ $note -lt 16 -a $note -ge 14 ]
+		then echo "bien"
+	elif [ $note -lt 14 -a $note -ge 12 ]
+		then echo "assez bien"
+	elif [ $note -lt 12 -a $note -ge 10 ]
+		then echo "moyen"
+	elif [ $note -lt 10 ]
+		then echo "insuffisant"
+fi
+
+	if [ $note -le 0 ]
+		then $note=-1
+		echo "Au revoir"
+fi	
+	echo "Veuillez saisir une note"
+	read note
+
+done
