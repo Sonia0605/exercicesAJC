@@ -1,0 +1,34 @@
+#!/bin/bash
+
+choix=0
+
+echo "1 - Vérifier l'existence d'un utilisateur"
+echo "2 - Connaîre l'UID d'un utilisateur"
+echo "q - Quitter"
+
+echo "Sélectionner votre choix"
+read -r choix
+
+verifier()
+{
+	echo "Le nom de l'utilisateur est $HOME"
+}
+
+connaitre()
+{
+	let UID=$(grep $HOME /etc/passwd)
+	echo "L'UID est $UID"
+}
+
+quitter()
+{
+	choix=-1
+	echo "Au revoir"
+}
+
+#programme principal
+case $choix in
+	"q")quitter;;
+	1)verifier;;
+	2)connaitre;;
+esac
