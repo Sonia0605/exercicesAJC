@@ -4,15 +4,14 @@ note=0
 moy=0
 i=0
 
-echo "Veuillez saisir une note"
-read -r  note
-
-while [ $note -gt 0 ]
-do
-	if [ $note -ge 0 ]
-		then moy=$(($moy+$note))
-		i=$(($i+1))
-	fi
+appreciation()
+{
+#while [ $note -gt 0 ]
+#do
+	#if [ $note -ge 0 ]
+	#	then moy=$(($moy+$note))
+	#	i=$(($i+1))
+	#fi
 	if [ $note -le 20 -a $note -ge 16 ]
 		then echo "très bien"
 	elif [ $note -lt 16 -a $note -ge 14 ]
@@ -21,27 +20,33 @@ do
 		then echo "assez bien"
 	elif [ $note -lt 12 -a $note -ge 10 ]
 		then echo "moyen"
-	elif [ $note -lt 10 ]
+	elif [ $note -lt 10 -a $note -ge 0 ]
 		then echo "insuffisant"
 	fi
 
-	echo "Veuillez saisir une note"
-	read note
+	#echo "Veuillez saisir une note"
+	#read note
 
 	if [ $note -le 0 ]
 		then note=-1
 		echo "Au revoir"
 	fi	
-done
+#done
+}
 
-if [ $i -le 0 ]
-	then i=1
-fi
+#programme principal
+echo "Veuillez saisir une note"
+read -r note
+appreciation $note
 
-moy=$(($moy/$i))
-echo "La moyenne est $moy($i notes)"
+#if [ $i -le 0 ]
+#	then i=1
+#fi
 
-if [ $note="q" ]
+#moy=$(($moy/$i))
+#echo "La moyenne est $moy($i notes)"
+
+if [ "$note"="q" ]
 	then note=-1
 	echo "Au revoir"
 fi
